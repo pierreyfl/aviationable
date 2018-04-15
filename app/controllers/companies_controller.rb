@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  layout "admin"
+  
 
   # GET /companies
   # GET /companies.json
@@ -78,6 +80,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name)
+      params.require(:company).permit(:name, :linkedin_url, :twitter_url, :youtube_url, :facebook_url, :instagram_url, :revenue, :address, :address_2, :address_3, :city, :state, :country, :zip)
     end
 end

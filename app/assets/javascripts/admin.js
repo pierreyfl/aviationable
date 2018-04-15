@@ -1,0 +1,11 @@
+//=require js/modernizr.min.js
+//=require js/jquery.min.js
+//=require js/popper.min.js
+//=require js/bootstrap.min.js
+//=require js/jquery.dataTables.min.js
+//=require js/dataTables.bootstrap4.min.js
+//=require js/waves.js
+//=require js/jquery.slimscroll.js
+//=require pages/jquery.dashboard.init.js
+//=require js/jquery.core.js
+//=require js/jquery.app.js

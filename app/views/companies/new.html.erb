@@ -1,5 +1,149 @@
-<h1>New Company</h1>
 
-<%= render 'form', company: @company %>
+            <div class="container-fluid">
 
-<%= link_to 'Back', companies_path %>
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="btn-group pull-right">
+                                <ol class="breadcrumb hide-phone p-0 m-0">
+                                    <li class="breadcrumb-item"><a href="#">Aviationable</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Companies</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Add</a></li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Add Company</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                          <h4 class="m-t-0 header-title">Basic Details</h4>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="p-20">
+                                      <%= form_for @company do |f| %>
+                                        
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Name</label>
+                                                <div class="col-10">
+                                                  <%= f.text_field :name, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Linkedin</label>
+                                                <div class="col-md-10">
+                                                  <%= f.text_field :linkedin_url, class: "form-control" %>
+                                                
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Twitter</label>
+                                                <div class="col-md-10">
+                                                  <%= f.text_field :twitter_url, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Youtube</label>
+                                                <div class="col-md-10">
+                                                  <%= f.text_field :youtube_url, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Facebook</label>
+                                                <div class="col-md-10">
+                                                  <%= f.text_field :facebook_url, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Instagram</label>
+                                                <div class="col-md-10">
+                                                  <%= f.text_field :instagram_url, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-2 col-form-label">Revenue</label>
+                                                <div class="col-md-10">
+                                                  <%= f.number_field :revenue, class: "form-control" %>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                        
+
+                                            
+
+                                      
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- end row -->
+
+                        </div> <!-- end card-box -->
+                    </div><!-- end col -->
+                </div>
+                <!-- end row -->
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="m-t-0 header-title">Company Address</h4>
+                          
+                                
+                                <div class="form-group">
+                                    <label for="inputAddress" class="col-form-label">Address</label>
+                                    <%= f.text_field :address, class: "form-control" %>
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress2" class="col-form-label">Address 2</label>
+                                    <%= f.text_field :address_2, class: "form-control" %>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress2" class="col-form-label">Address 2</label>
+                                    <%= f.text_field :address_3, class: "form-control" %>
+                                    
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity" class="col-form-label">City</label>
+                                        <%= f.text_field :city, class: "form-control" %>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputCity" class="col-form-label">State</label>
+                                        <%= f.text_field :state, class: "form-control" %>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip" class="col-form-label">Zip</label>
+                                        <%= f.text_field :zip, class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity" class="col-form-label">Country</label>
+                                        <%= f.text_field :country, class: "form-control" %>
+                                    </div>
+                                  </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                          <%= f.submit "Create Company", class: "btn btn-dark btn-block" %>
+                        </div>
+                      </div>
+                    </div>
+<% end %>
+
+                <!-- end row -->
+
+            </div> <!-- end container -->
+        

@@ -1,6 +1,4 @@
 class Company < ApplicationRecord
-  
-  searchkick text_start: [‘name’]
-  
+has_many :employees, dependent: :destroy
   
 end

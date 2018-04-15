@@ -50,6 +50,7 @@ var CompaniesContainer = createReactClass({
 		
 		return (
 			<div>
+				<Companies companies={this.state.companies} />
 				<CompaniesSearch searchPath={this.props.searchPath} submitPath={this.searchCompanies} cancelPath={this.fetchCompanies}/>
 			</div>
 			);

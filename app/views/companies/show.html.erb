@@ -1,9 +1,116 @@
-<p id="notice"><%= notice %></p>
+            <div class="container-fluid">
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="btn-group pull-right">
+                                <ol class="breadcrumb hide-phone p-0 m-0">
+                                    <li class="breadcrumb-item"><a href="#">Aviationable</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Companies</a></li>
+                                    <li class="breadcrumb-item active">Company</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Company</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-center card-box">
+
+                            <div class="member-card pt-2 pb-2">
+                                <div class="thumb-lg member-thumb m-b-10 mx-auto">
+                                    <img src="/assets/images/users/avatar-2.jpg" class="rounded-circle img-thumbnail" alt="profile-image">
+                                </div>
+
+                                <div class="">
+                                    <h4 class="m-b-5"><%= @company.name %></h4>
+                                    <p class="text-muted">@Founder <span> | </span> <span> <a href="#" class="text-pink">Founder Name</a> </span></p>
+                                </div>
+
+                                <ul class="social-links list-inline m-t-20">
+                                    <li class="list-inline-item">
+                                        <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="<%= @company.facebook_url %>" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="<%= @company.twitter_url %>" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="<%= @company.linkedin_url %>" data-original-title="Skype"><i class="fa fa-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                                <%= link_to "Add Employee", new_company_employee_path(@company), class: "btn btn-dark m-t-20 btn-rounded btn-bordered" %>
+                                 
+                                <div class="mt-4">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mt-3">
+                                                <h4 class="m-b-5"><% if @company.revenue%><%= @company.revenue %><% else %>-<% end %></h4>
+                                                <p class="mb-0 text-muted">Revenue</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mt-3">
+                                                <h4 class="m-b-5"><%= @company.employees.count %></h4>
+                                                <p class="mb-0 text-muted">Employees</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mt-3">
+                                                <h4 class="m-b-5">1994</h4>
+                                                <p class="mb-0 text-muted">Founded</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box table-responsive">
+                            <h4 class="m-t-0 header-title">Employees</h4>
+                            <table id="datatable" class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Salutation</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Action</th>
+                                   
+                                </tr>
+                                </thead>
+
+
+                                <tbody>
+                                <% @company.employees.each do |e| %>
+                                <tr>
+                                    <td><%= e.salutation %></td>
+                                    <td><%= e.first_name %></td>
+                                    <td><%= e.last_name %></td>
+                                    <td><%= link_to "Edit", edit_company_employee_path(@company, e), class: "btn btn-dark" %></td>
+                                </tr>
+                                <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> 
+              </div>
+              
+              <script type="text/javascript">
+                  $(document).ready(function() {
+
+                      // Default Datatable
+                      $('#datatable').DataTable();
+                    });
+                    </script>
