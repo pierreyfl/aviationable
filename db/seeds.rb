@@ -8,6 +8,7 @@
 
 
 Company.delete_all
+
 100.times do
 
   company = Company.create(

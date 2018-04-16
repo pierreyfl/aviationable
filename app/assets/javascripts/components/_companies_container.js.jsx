@@ -42,11 +42,13 @@ var CompaniesContainer = createReactClass({
   },
 
   filterCompanies(filters) {
+      console.log("filter", filters, this.props.searchPath);
     if (filters) {
       this.setState({loading: true, filters: filters});
       $.ajax({
         url: this.props.searchPath,
         dataType: "json",
+        //method: 'post',
         data: {
           query: this.state.query,
           filters: filters

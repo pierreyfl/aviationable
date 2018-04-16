@@ -64,8 +64,21 @@ class CompaniesController < ApplicationController
   end
 
   def search
-  	@companies = Company.search(params[:query])
-  	if request.xhr?
+
+
+    @companies = Company.all
+
+    # Company.search(params[:query]) if (params[:query])
+  	@companies = @companies.where('name LIKE ?', "%#{params[:query]}%" ) if (params[:query])
+    filter = params[:filters]
+    @companies = @companies.where("revenue >= ?", filter[:min_revenue]) if filter[:min_revenue] != ''
+    @companies = @companies.where("revenue <= ?", filter[:max_revenue]) if filter[:max_revenue] != ''
+    @companies = @companies.where("age >= ?", filter[:min_age]) if filter[:min_age] != ''
+    @companies = @companies.where("age <= ?", filter[:max_age]) if filter[:max_age] != ''
+    @companies = @companies.where("total_funding >= ?", filter[:min_total_funding]) if filter[:min_total_funding] != ''
+    @companies = @companies.where("total_funding <= ?", filter[:max_total_funding]) if filter[:max_total_funding] != ''
+
+    if request.xhr?
   		render :json => @companies.to_json
   	else
   		render :index
