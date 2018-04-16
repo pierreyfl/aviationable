@@ -10,7 +10,8 @@ var Companies = createReactClass({
               <tr>
                 <th>Logo</th>
                 <th>Name</th>
-                <th>Employee Count</th>
+                  <th>Employee Count</th>
+                  <th>Total Funding</th>
                 <th>Revenue</th>
                 <th>Country</th>
               </tr>
@@ -35,7 +36,8 @@ var Companies = createReactClass({
                       </p>
                     </td>
 
-                    <td>1</td>
+                    <td>{company.employees_count}</td>
+                      <td>{company.total_funding}</td>
 
                     <td>{company.revenue} USD</td>
 
