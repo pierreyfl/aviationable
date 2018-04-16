@@ -11,35 +11,75 @@ var CompanyFilter = createReactClass({
         max_employees: ''
     };
   },
-  handleMinRevenue: function(event) {
-    this.setState({
-      min_revenue: event.target.value
-    });
-  },
+
     onChange: function(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     },
-  handleMaxRevenue: function(event) {
-    this.setState({
-      max_revenue: event.target.value
-    });
-  },
 
-    handleMaxTotalFunding: function(event) {
-        this.setState({
-            max_total_funding: event.target.value
+    componentDidMount: function () {
+      var vm = this;
+        $(".companies-filter #revenue").ionRangeSlider({
+            type: "double",
+            min: 1000,
+            max: 10000,
+            grid: true,
+            force_edges: true,
+            onFinish: function (data) {
+                vm.setState({
+                    min_revenue: data.from,
+                    max_revenue: data.to
+                });
+                vm.reload();
+            }
+        });
+
+        $(".companies-filter #age").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            grid: true,
+            force_edges: true,
+            onFinish: function (data) {
+                vm.setState({
+                    min_age: data.from,
+                    max_age: data.to
+                });
+                vm.reload();
+            }
+        });
+
+        $(".companies-filter #employees").ionRangeSlider({
+            type: "double",
+            min: 1,
+            max: 100,
+            grid: true,
+            force_edges: true,
+            onFinish: function (data) {
+                vm.setState({
+                    min_employees: data.from,
+                    max_employees: data.to
+                });
+                vm.reload();
+            }
+        });
+
+        $(".companies-filter #total_fund").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 1000000,
+            grid: true,
+            force_edges: true,
+            onFinish: function (data) {
+                vm.setState({
+                    min_total_funding: data.from,
+                    max_total_funding: data.to
+                });
+                vm.reload();
+            }
         });
     },
-
-    handleMinTotalFunding: function(event) {
-        this.setState({
-            min_total_funding: event.target.value
-        });
-
-    },
-
     reload: function () {
         this.props.filterCompanies(this.state);
     },
@@ -48,74 +88,57 @@ var CompanyFilter = createReactClass({
     return (
       <div className="companies-filter">
         <div className="row">
-          <div className="col-md-6">Estimated Employees
+          <div className="col-md-6">
+              <label >
+                  Estimated Employees
+              </label>
+
 
               <input
                   value={this.state.min_employees}
                   placeholder="minimum"
-                  name="min_employees"
-                  onChange={this.onChange}
-                  onBlur={this.reload}
+                  id="employees"
               />
-              <input
-                  value={this.state.max_employees}
-                  placeholder="maximum"
-                  name="max_employees"
-                  onChange={this.onChange}
-                  onBlur={this.reload}
-              />
+
           </div>
 
           <div className="col-md-6">
-            Estimated Revenue
+              <label>
+                  Estimated Revenue
+
+              </label>
             <input
               value={this.state.min_revenue}
               placeholder="minimum"
-              name="min_revenue"
-              onChange={this.onChange}
-              onBlur={this.reload}
+              id="revenue"
             />
-            <input
-              value={this.state.max_revenue}
-              placeholder="maximum"
-              name="max_revenue"
-              onChange={this.onChange}
-              onBlur={this.reload}
-            />
+
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6">Total Funding
+          <div className="col-md-6">
+              <label> Total Funding</label>
+
               <input
                   value={this.state.min_total_funding}
                   placeholder="minimum"
-                  name="min_total_funding"
-                  onChange={this.onChange}
-                  onBlur={this.reload}
+                  id="total_fund"
+
               />
-              <input
-                  value={this.state.max_total_funding}
-                  placeholder="maximum"
-                  name="max_total_funding"
-                  onChange={this.onChange}
-                  onBlur={this.reload}
-              />
+
           </div>
-          <div className="col-md-6">Company Age
+          <div className="col-md-6">
+              <label>
+                  Company Age
+
+              </label>
               <input
                   value={this.state.min_age}
                   placeholder="minimum"
-                  name="min_age"
-                  onChange={this.onChange}
-                  onBlur={this.reload}
+                  id="age"
+
               />
-              <input
-                  value={this.state.max_age}
-                  placeholder="maximum"
-                  name="max_age"
-                  onChange={this.onChange}
-                  onBlur={this.reload}
-              />
+
           </div>
         </div>
       </div>

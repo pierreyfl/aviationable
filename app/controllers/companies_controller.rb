@@ -77,6 +77,8 @@ class CompaniesController < ApplicationController
     @companies = @companies.where("age <= ?", filter[:max_age]) if filter[:max_age] != ''
     @companies = @companies.where("total_funding >= ?", filter[:min_total_funding]) if filter[:min_total_funding] != ''
     @companies = @companies.where("total_funding <= ?", filter[:max_total_funding]) if filter[:max_total_funding] != ''
+    @companies = @companies.where("employees_count >= ?", filter[:min_employees]) if filter[:min_employees] != ''
+    @companies = @companies.where("employees_count <= ?", filter[:max_employees]) if filter[:max_employees] != ''
 
     if request.xhr?
   		render :json => @companies.to_json

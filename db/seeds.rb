@@ -14,6 +14,7 @@ Company.delete_all
   company = Company.create(
       name: Faker::Company.name,
       age: Faker::Number.number(2),
+      employees_count: Faker::Number.number(2),
       revenue: Faker::Number.number(4),
       total_funding: Faker::Number.number(6),
       address: Faker::Address.street_address,

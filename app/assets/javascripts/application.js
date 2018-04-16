@@ -17,5 +17,6 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require ion_rang_slider
 //= require components
 //= require server_rendering
