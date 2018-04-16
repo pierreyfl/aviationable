@@ -23,7 +23,6 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'searchkick'
 gem 'react-rails'
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -44,6 +43,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'faker'
 end
 
 group :development do

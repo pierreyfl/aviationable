@@ -1,5 +1,7 @@
 {
   "name": "aviationable",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "rc-slider": "^8.6.1"
+  }
 }

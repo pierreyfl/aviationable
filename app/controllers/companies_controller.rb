@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   layout "admin"
-  
+
 
   # GET /companies
   # GET /companies.json
@@ -62,7 +62,7 @@ class CompaniesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def search
   	@companies = Company.search(params[:query])
   	if request.xhr?
