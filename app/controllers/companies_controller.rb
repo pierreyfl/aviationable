@@ -66,9 +66,10 @@ class CompaniesController < ApplicationController
   def search
 
 
+    @companies = Company.all
 
-    @companies = (params[:query] == '') ? Company.all :  @companies.search(params[:query]) if (params[:query])
-    # @companies = @companies.where('name LIKE ?', "%#{params[:query]}%" ) if (params[:query])
+    # @companies = (params[:query] == '') ? Company.all :  @companies.search(params[:query]) if (params[:query])
+    @companies = @companies.where('name LIKE ?', "%#{params[:query]}%" ) if (params[:query])
     filter = params[:filters]
     @companies = @companies.where("revenue >= ?", filter[:min_revenue]) if filter[:min_revenue] != ''
     @companies = @companies.where("revenue <= ?", filter[:max_revenue]) if filter[:max_revenue] != ''
