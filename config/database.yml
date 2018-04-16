@@ -23,5 +23,6 @@ test:
   database: aviationable_test
 
 production:
-  <<: *default
-  database: aviationable
+  url: <%= ENV['DATABASE_URL'] %>
+#  <<: *default
+#  database: aviationable
