@@ -1,4 +1,5 @@
 Rails.application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -29,6 +30,9 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
+
+  # React env
+  config.react.variant = :production
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

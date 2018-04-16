@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Company.delete_all
+
+100.times do
+
+  company = Company.create(
+      name: Faker::Company.name,
+      age: Faker::Number.number(2),
+      employees_count: Faker::Number.number(2),
+      revenue: Faker::Number.number(4),
+      total_funding: Faker::Number.number(6),
+      address: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state,
+      zip: Faker::Address.zip,
+      country: Faker::Address.country
+  )
+  if company.id
+    puts "Created company #{company.name}"
+  end
+end

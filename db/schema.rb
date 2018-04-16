@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414121152) do
+ActiveRecord::Schema.define(version: 20180416180605) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -29,14 +32,18 @@ ActiveRecord::Schema.define(version: 20180414121152) do
     t.string "state"
     t.string "zip"
     t.string "country"
+    t.decimal "total_funding"
+    t.integer "age"
+    t.integer "employees_count"
   end
 
   create_table "employees", force: :cascade do |t|
     t.string "salutation"
     t.string "first_name"
     t.string "last_name"
-    t.integer "company_id"
+    t.bigint "company_id"
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
+  add_foreign_key "employees", "companies"
 end

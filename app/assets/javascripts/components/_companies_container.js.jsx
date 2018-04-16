@@ -1,59 +1,93 @@
 var CompaniesContainer = createReactClass({
-	componentWillMount(){
-		this.fetchCompanies();
-	},
+  componentWillMount() {
+    this.fetchCompanies();
+  },
 
-	fetchCompanies() {
+  fetchCompanies() {
+    $.ajax({
+      url: this.props.companiesPath,
 
-		$.ajax({
-	      url: this.props.companiesPath,
-	      
-	      dataType: 'json',
-	      
-	      success: function(data) {
-	        this.setState({companies: data});
-	      }.bind(this),
+      dataType: "json",
 
-	      error: function(data) {
-	      	this.setState({companies: []});
-	      }.bind(this)
-	    });
-	},
+      success: function(data) {
+        this.setState({ companies: data });
+      }.bind(this),
 
-	searchCompanies(event) {
-		if (event.target.value) {
-			$.ajax({
-		      url: this.props.searchPath+"?query="+event.target.value,
-		      
-		      dataType: 'json',
-		      
-		      success: function(data) {
-		        this.setState({companies: data});
-		      }.bind(this),
+      error: function(data) {
+        this.setState({ companies: [] });
+      }.bind(this)
+    });
+  },
 
-		      error: function(data) {
-		      	this.setState({companies: []});
-		      }.bind(this)
-		    });
-		}
-		else{
-			this.fetchCompanies();
-		}
+  searchCompanies(query) {
+    if (query) {
+      this.setState({loading: true, query: query});
+      $.ajax({
+        url: this.props.searchPath,
+        dataType: "json",
+        data: {
+          query: query,
+          filters: this.state.filters
+        },
+        success: function(data) {
+          this.setState({ loading: false, companies: data });
+        }.bind(this),
+        error: function(data) {
+          this.setState({ loading: false, companies: [] });
+        }.bind(this)
+      });
+    } else {
+      this.fetchCompanies();
+    }
+  },
 
-	},
-	
-	getInitialState() {
-		return { companies: [] };
-	},
+  filterCompanies(filters) {
+      console.log("filter", filters, this.props.searchPath);
+    if (filters) {
+      this.setState({loading: true, filters: filters});
+      $.ajax({
+        url: this.props.searchPath,
+        dataType: "json",
+        //method: 'post',
+        data: {
+          query: this.state.query,
+          filters: filters
+        },
+        success: function(data) {
+          this.setState({ loading: false, companies: data });
+        }.bind(this),
+        error: function(data) {
+          this.setState({ loading: false, companies: [] });
+        }.bind(this)
+      });
+    } else {
+      this.fetchCompanies();
+    }
+  },
 
-	render() {
-		
-		return (
-			<div>
-				<Companies companies={this.state.companies} />
-				<CompaniesSearch searchPath={this.props.searchPath} submitPath={this.searchCompanies} cancelPath={this.fetchCompanies}/>
-			</div>
-			);
+  getInitialState() {
+    return { companies: [] };
+  },
 
-	}
+  render() {
+    return (
+      <div>
+        <CompaniesSearch
+          searchCompanies={this.searchCompanies}
+        />
+        <CompanyFilter
+          filterCompanies={this.filterCompanies}
+        />
+        { this.state.loading ?
+          <Loading /> :
+          (
+            <div className="search-results">
+              <Companies
+                companies={this.state.companies} />
+            </div>
+          )
+        }
+      </div>
+    );
+  }
 });

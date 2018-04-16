@@ -83,9 +83,12 @@ GEM
       multi_json
     erubi (1.7.1)
     execjs (2.7.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
+    ffi (1.9.23-x86-mingw32)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
@@ -118,7 +121,10 @@ GEM
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    nokogiri (1.8.2-x86-mingw32)
+      mini_portile2 (~> 2.3.0)
     pg (1.0.0)
+    pg (1.0.0-x86-mingw32)
     popper_js (1.12.9)
     public_suffix (3.0.2)
     puma (3.11.3)
@@ -198,6 +204,8 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2018.4)
+      tzinfo (>= 1.0.0)
     uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
     web-console (3.5.1)
@@ -213,12 +221,14 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   bootstrap (~> 4.0.0)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  faker
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
