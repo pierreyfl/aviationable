@@ -9,12 +9,21 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+            <% if user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <%= link_to "Dashboard", companies_path, class: "nav-link" %>
+            </li>
+              <li class="nav-item">
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+              <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Register</a>
             </li>
+            <% end %>
           </ul>
 
         </div>
@@ -31,27 +40,7 @@
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
 
-      <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-
-
-
-      </div><!-- /.container -->
-
+     
         <hr class="featurette-divider">
       <!-- FOOTER -->
       <footer class="container">

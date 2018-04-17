@@ -26,7 +26,7 @@ var CompaniesSearch = createReactClass({
               <input
                 type="text"
                 className="form-control input-lg"
-                placeholder="Buscar"
+                placeholder="Search Company"
                 value={this.state.searchText}
                 onChange={this.handleSearchText}
               />

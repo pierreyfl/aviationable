@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 offset-md-4">
+            <h1 class="text-center login-title">Sign in to continue to Aviationable</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                    alt="">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+                      <div class="field">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                      </div>
+
+                      <div class="actions">
+                        <%= f.submit "Login", class: "btn btn-lg btn-primary btn-block" %>
+                      </div>
+                    <% end %>
+                
+            </div>
+            <%= link_to "Create an account", new_user_registration_path, class: "text-center new-account" %>
+        </div>
+    </div>
+</div>

@@ -20,10 +20,42 @@
     <body>
 
         <!-- Navigation Bar-->
+        <% if !current_user.admin? && action_name == 'show' %>
+        <header>
+              <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#">Aviationable</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <% if user_signed_in? %>
+                      <li class="nav-item">
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                      </li>
+                      <% else %>
+                    <li class="nav-item">
+                      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <% end %>
+                  </ul>
+
+                </div>
+              </nav>
+            </header>
+        </header>
+        
+        <% else %>
         <header id="topnav">
             <div class="topbar-main">
                 <div class="container-fluid">
-
+                  
                     <!-- Logo container-->
                     <div class="logo">
                         <!-- Text Logo -->
@@ -32,11 +64,7 @@
                             <span class="logo-large"><i class="mdi mdi-radar"></i> Highdmin</span>
                         </a> -->
                         <!-- Image Logo -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/logo_sm.png" alt="" height="26" class="logo-small">
-                            <img src="assets/images/logo.png" alt="" height="22" class="logo-large">
-                        </a>
-
+                        
                     </div>
                     <!-- End Logo container-->
 
@@ -57,22 +85,21 @@
                                 <!-- End mobile menu toggle-->
                             </li>
 
-                           
+                       
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <span class="ml-1 pro-user-name">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
-                              
+                                    <span class="ml-1 pro-user-name">Hi!<i class="mdi mdi-chevron-down"></i> </span>
+                          
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
                                     <div class="dropdown-item noti-title">
-                                        <h6 class="text-overflow m-0">Welcome !</h6>
+                                        <h6 class="text-overflow m-0">Welcome!</h6>
                                     </div>
-
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item notify-item" do %>
                                         <i class="fi-power"></i> <span>Logout</span>
-                                    </a>
+                                   <% end %>
 
                                 </div>
                             </li>
@@ -93,7 +120,7 @@
                         <ul class="navigation-menu">
 
                             <li class="has-submenu">
-                                <a href="index.html"><i class="icon-speedometer"></i>Dashboard</a>
+                                <a href="/companies"><i class="icon-speedometer"></i>Dashboard</a>
                             </li>
                         </ul>
                         <!-- End navigation menu -->
@@ -101,6 +128,9 @@
                 </div> <!-- end container -->
             </div> <!-- end navbar-custom -->
         </header>
+        
+           
+          <% end %>
         <!-- End Navigation Bar-->
 
 

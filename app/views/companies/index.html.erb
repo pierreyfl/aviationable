@@ -48,19 +48,19 @@
                                         </td>
 
                                         <td>
-                                            5388
+                                            <%= company.employees_count %>
                                         </td>
 
                                         <td>
-                                            3,339,100 USD
+                                           <%= company.revenue %> USD
                                         </td>
 
                                         <td>
-                                             United States
+                                             <%= company.country %>
                                         </td>
 
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-danger"><i class="mdi mdi-minus"></i></a>
+                                          <%= link_to "View", company_path(company.id), class: "btn btn-sm btn-danger" %>
                                         </td>
                                     </tr>
                                     <% end %>
@@ -83,7 +83,9 @@
                                         </td>
 
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-custom"><i class="mdi mdi-plus"></i></a>
+                                          <%= link_to new_company_path, class: "btn btn-sm btn-custom" do %>
+                                          <i class="mdi mdi-plus"></i>
+                                          <% end %>
 
                                         </td>
                                     </tr>

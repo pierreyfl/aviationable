@@ -30,7 +30,7 @@ var Companies = createReactClass({
                     </td>
 
                     <td>
-                      <h5 className="m-0 font-weight-normal">{company.name}</h5>
+                      <h5 className="m-0 font-weight-normal"><a href={'companies/' + company.id}>{company.name}</a></h5>
                       <p className="mb-0 text-muted">
                         <small>{company.revenue}</small>
                       </p>

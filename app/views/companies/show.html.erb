@@ -1,6 +1,7 @@
             <div class="container-fluid">
 
                 <!-- Page-Title -->
+                <% if current_user.admin? %>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
@@ -15,6 +16,7 @@
                         </div>
                     </div>
                 </div>
+                <% end %>
                 <!-- end page title end breadcrumb -->
 
 
@@ -43,7 +45,9 @@
                                         <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="<%= @company.linkedin_url %>" data-original-title="Skype"><i class="fa fa-linkedin"></i></a>
                                     </li>
                                 </ul>
+                                <% if current_user.admin? %>
                                 <%= link_to "Add Employee", new_company_employee_path(@company), class: "btn btn-dark m-t-20 btn-rounded btn-bordered" %>
+                                <% end %>
                                  
                                 <div class="mt-4">
                                     <div class="row">

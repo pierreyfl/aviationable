@@ -47,6 +47,8 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
@@ -73,6 +75,12 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.4)
+    devise (4.4.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     elasticsearch (6.0.2)
       elasticsearch-api (= 6.0.2)
       elasticsearch-transport (= 6.0.2)
@@ -123,6 +131,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     nokogiri (1.8.2-x86-mingw32)
       mini_portile2 (~> 2.3.0)
+    orm_adapter (0.5.0)
     pg (1.0.0)
     pg (1.0.0-x86-mingw32)
     popper_js (1.12.9)
@@ -164,6 +173,9 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -208,6 +220,8 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -228,6 +242,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  devise
   faker
   font-awesome-rails
   jbuilder (~> 2.5)

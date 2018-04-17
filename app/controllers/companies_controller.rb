@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   layout "admin"
+  
 
 
   # GET /companies
@@ -12,6 +14,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    
   end
 
   # GET /companies/new
@@ -97,4 +100,5 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(:name, :linkedin_url, :twitter_url, :youtube_url, :facebook_url, :instagram_url, :revenue, :address, :address_2, :address_3, :city, :state, :country, :zip)
     end
+
 end
