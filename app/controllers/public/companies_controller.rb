@@ -3,7 +3,13 @@ module Public
         #this controller is going to be used for those routes that don't need authentication
         def index
             @companies = Company.all
-            render json: @companies, status: 200
+            respond_to do |format|
+
+                format.html
+                format.json 
+              
+            end
+            # render json: @companies, status: 200
         end
 
         def search
@@ -24,8 +30,10 @@ module Public
                 @companies = @companies.where("employees_count >= ?", filter[:min_employees]) if filter[:min_employees] != ''
                 @companies = @companies.where("employees_count <= ?", filter[:max_employees]) if filter[:max_employees] != ''
             end
-
-            render json: @companies, status: 200
+            respond_to do |format|
+                format.json
+            end
+            # render json: @companies, status: 200
             # if request.xhr?
             #       render :json => @companies.to_json
             #   else

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   layout "admin"
   
 
@@ -74,7 +74,9 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :linkedin_url, :twitter_url, :youtube_url, :facebook_url, :instagram_url, :revenue, :address, :address_2, :address_3, :city, :state, :country, :zip)
+      params.require(:company).permit(:name, :linkedin_url, :twitter_url, :youtube_url, :facebook_url, 
+        :instagram_url, :revenue, :address, :address_2, :address_3, :city, :state, :country, :zip,
+        :banner, :sector)
     end
 
 end

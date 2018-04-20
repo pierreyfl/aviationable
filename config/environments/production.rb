@@ -92,4 +92,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  #need to configure it to work with file upload
+  #see https://github.com/thoughtbot/paperclip
+  # Paperclip.options[:command_path] = "/usr/local/bin/"
 end

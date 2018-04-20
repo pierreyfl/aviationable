@@ -39,7 +39,11 @@
                                     <% @companies.each do |company|%>
                                     <tr>
                                         <td>
-                                            <img src="assets/images/users/avatar-3.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                            <% if company.banner.file? %>
+                                                <%= image_tag company.banner.url, class: "rounded-circle thumb-sm", alt:"contact-img", title: "contact-img" %>
+                                            <% else %>
+                                                <img src="assets/images/users/avatar-3.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                            <% end %>
                                         </td>
 
                                         <td>
