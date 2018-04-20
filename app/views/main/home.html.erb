@@ -33,7 +33,7 @@
     <main role="main">
 
       <div class="container search">
-        <%= react_component("CompaniesContainer", { companiesPath: companies_path(:json), searchPath: search_path }) %>
+        <%= react_component("CompaniesContainer", { companiesPath: public_companies_path(:json), searchPath: search_public_companies_path }) %>
       </div>
 
       <!-- Marketing messaging and featurettes
