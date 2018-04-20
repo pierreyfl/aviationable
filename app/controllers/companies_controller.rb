@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
-  layout "admin"
+  layout :choose_layout
   
 
 
@@ -77,6 +77,14 @@ class CompaniesController < ApplicationController
       params.require(:company).permit(:name, :linkedin_url, :twitter_url, :youtube_url, :facebook_url, 
         :instagram_url, :revenue, :address, :address_2, :address_3, :city, :state, :country, :zip,
         :banner, :sector)
+    end
+
+    def choose_layout
+      if user_signed_in?
+        "admin"
+      else
+        "application"
+      end
     end
 
 end
