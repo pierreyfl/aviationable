@@ -16,7 +16,9 @@ module Public
 
             query = params[:query]
 
-            @companies = CompanyView.by_name(query[:company]).by_sector(query[:sector]).by_location(query[:location])
+            @companies = CompanyView.all
+
+            @companies = CompanyView.by_name(query[:company]).by_sector(query[:sector]).by_location(query[:location]) if query.present?
         
             
             filter = params[:filters]
@@ -39,6 +41,11 @@ module Public
             #   else
             #       render :index
             #   end
+        end
+
+        def locations
+            @locations = CompanyView.all.by_location(params[:term]).select(:location).distinct(:location).map(&:location)
+            render json: @locations, status: 200
         end
     end
 end

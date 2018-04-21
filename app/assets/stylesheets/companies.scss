@@ -1,7 +1,7 @@
 // Place all the styles related to the companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.companies-filter{
+.companies-filter {
   margin: 20px 0;
 }
 
@@ -14,7 +14,8 @@
 // RangeSlider */
 
 .irs {
-  position: relative; display: block;
+  position: relative;
+  display: block;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -23,86 +24,108 @@
   user-select: none;
 }
 .irs-line {
-  position: relative; display: block;
+  position: relative;
+  display: block;
   overflow: hidden;
   outline: none !important;
 }
-.irs-line-left, .irs-line-mid, .irs-line-right {
-  position: absolute; display: block;
+.irs-line-left,
+.irs-line-mid,
+.irs-line-right {
+  position: absolute;
+  display: block;
   top: 0;
 }
 .irs-line-left {
-  left: 0; width: 11%;
+  left: 0;
+  width: 11%;
 }
 .irs-line-mid {
-  left: 9%; width: 82%;
+  left: 9%;
+  width: 82%;
 }
 .irs-line-right {
-  right: 0; width: 11%;
+  right: 0;
+  width: 11%;
 }
 
 .irs-bar {
-  position: absolute; display: block;
-  left: 0; width: 0;
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 0;
 }
 .irs-bar-edge {
-  position: absolute; display: block;
-  top: 0; left: 0;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
 }
 
 .irs-shadow {
-  position: absolute; display: none;
-  left: 0; width: 0;
+  position: absolute;
+  display: none;
+  left: 0;
+  width: 0;
 }
 
 .irs-slider {
-  position: absolute; display: block;
+  position: absolute;
+  display: block;
   cursor: default;
   z-index: 1;
 }
 .irs-slider.single {
-
 }
 .irs-slider.from {
-
 }
 .irs-slider.to {
-
 }
 .irs-slider.type_last {
   z-index: 2;
 }
 
 .irs-min {
-  position: absolute; display: block;
+  position: absolute;
+  display: block;
   left: 0;
   cursor: default;
 }
 .irs-max {
-  position: absolute; display: block;
+  position: absolute;
+  display: block;
   right: 0;
   cursor: default;
 }
 
-.irs-from, .irs-to, .irs-single {
-  position: absolute; display: block;
-  top: 0; left: 0;
+.irs-from,
+.irs-to,
+.irs-single {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
   cursor: default;
   white-space: nowrap;
 }
 
 .irs-grid {
-  position: absolute; display: none;
-  bottom: 0; left: 0;
-  width: 100%; height: 20px;
+  position: absolute;
+  display: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
 }
 .irs-with-grid .irs-grid {
   display: block;
 }
 .irs-grid-pol {
   position: absolute;
-  top: 0; left: 0;
-  width: 1px; height: 8px;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 8px;
   background: #000;
 }
 .irs-grid-pol.small {
@@ -110,20 +133,25 @@
 }
 .irs-grid-text {
   position: absolute;
-  bottom: 0; left: 0;
+  bottom: 0;
+  left: 0;
   white-space: nowrap;
   text-align: center;
-  font-size: 9px; line-height: 9px;
+  font-size: 9px;
+  line-height: 9px;
   padding: 0 3px;
   color: #000;
 }
 
 .irs-disable-mask {
-  position: absolute; display: block;
-  top: 0; left: -1%;
-  width: 102%; height: 100%;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -1%;
+  width: 102%;
+  height: 100%;
   cursor: default;
-  background: rgba(0,0,0,0.0);
+  background: rgba(0, 0, 0, 0);
   z-index: 2;
 }
 .lt-ie9 .irs-disable-mask {
@@ -135,7 +163,6 @@
 .irs-disabled {
   opacity: 0.4;
 }
-
 
 .irs-hidden-input {
   position: absolute !important;
@@ -179,7 +206,8 @@
   height: 60px;
 }
 .irs-line {
-  height: 12px; top: 25px;
+  height: 12px;
+  top: 25px;
 }
 .irs-line-left {
   height: 12px;
@@ -195,17 +223,20 @@
 }
 
 .irs-bar {
-  height: 12px; top: 25px;
+  height: 12px;
+  top: 25px;
   background-position: 0 -60px;
 }
 .irs-bar-edge {
   top: 25px;
-  height: 12px; width: 9px;
+  height: 12px;
+  width: 9px;
   background-position: 0 -90px;
 }
 
 .irs-shadow {
-  height: 3px; top: 34px;
+  height: 3px;
+  top: 34px;
   background: #000;
   opacity: 0.25;
 }
@@ -214,43 +245,56 @@
 }
 
 .irs-slider {
-  width: 16px; height: 18px;
+  width: 16px;
+  height: 18px;
   top: 22px;
   background-position: 0 -120px;
 }
-.irs-slider.state_hover, .irs-slider:hover {
+.irs-slider.state_hover,
+.irs-slider:hover {
   background-position: 0 -150px;
 }
 
-.irs-min, .irs-max {
+.irs-min,
+.irs-max {
   color: #999;
-  font-size: 10px; line-height: 1.333;
+  font-size: 10px;
+  line-height: 1.333;
   text-shadow: none;
-  top: 0; padding: 1px 3px;
+  top: 0;
+  padding: 1px 3px;
   background: #e1e4e9;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
 
-.irs-from, .irs-to, .irs-single {
+.irs-from,
+.irs-to,
+.irs-single {
   color: #fff;
-  font-size: 10px; line-height: 1.333;
+  font-size: 10px;
+  line-height: 1.333;
   text-shadow: none;
   padding: 1px 5px;
   background: #ed5565;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.irs-from:after, .irs-to:after, .irs-single:after {
-  position: absolute; display: block; content: "";
-  bottom: -6px; left: 50%;
-  width: 0; height: 0;
+.irs-from:after,
+.irs-to:after,
+.irs-single:after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 0;
   margin-left: -3px;
   overflow: hidden;
   border: 3px solid transparent;
   border-top-color: #ed5565;
 }
-
 
 .irs-grid-pol {
   background: #e1e4e9;
@@ -260,4 +304,64 @@
 }
 
 .irs-disabled {
+}
+
+/* autocomplete */
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 240px;
+  height: 30px;
+  padding: 10px 20px;
+  // font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  // font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  top: 51px;
+  width: 280px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  // font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  // font-size: 16px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #ddd;
 }

@@ -2,6 +2,16 @@
   "name": "aviationable",
   "private": true,
   "dependencies": {
-    "rc-slider": "^8.6.1"
+    "@rails/webpacker": "3.4",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.1",
+    "rc-slider": "^8.6.1",
+    "react": "^16.3.2",
+    "react-autosuggest": "^9.3.4",
+    "react-dom": "^16.3.2",
+    "react_ujs": "^2.4.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
   }
 }

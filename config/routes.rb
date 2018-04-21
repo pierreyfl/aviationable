@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :companies, only: [:index] do
       get :search, on: :collection
+      get :locations, on: :collection
     end
   end
 
