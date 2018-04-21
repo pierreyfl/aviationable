@@ -5,4 +5,5 @@ class Company < ApplicationRecord
   validates_attachment_content_type :banner, content_type: /\Aimage\/.*\z/
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}
+  validates :city, :state, :country, presence: true
 end

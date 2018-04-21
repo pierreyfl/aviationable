@@ -1,17 +1,19 @@
 var CompaniesSearch = createReactClass({
   getInitialState: function() {
-      return {searchText: ''};
+    return { searchText: "", searchLocation: "", searchSector: "" };
   },
-  componentWillMount: function() {
+  componentWillMount: function() {},
 
-  },
-
-  searchCompanies: function(event){
+  searchCompanies: function(event) {
     event.preventDefault();
-    this.props.searchCompanies(this.state.searchText);
+    this.props.searchCompanies({
+      company: this.state.searchText,
+      location: this.state.searchLocation,
+      sector: this.state.searchSector
+    });
   },
 
-  handleSearchText: function(event){
+  handleSearchText: function(event) {
     this.setState({
       searchText: event.target.value
     });
@@ -19,7 +21,7 @@ var CompaniesSearch = createReactClass({
 
   render: function() {
     return (
-      <div className="row">
+      <div>
         <div className="col-md-6 offset-md-3">
           <form id="custom-search-input" onSubmit={this.searchCompanies}>
             <div className="input-group col-md-12">
@@ -30,12 +32,34 @@ var CompaniesSearch = createReactClass({
                 value={this.state.searchText}
                 onChange={this.handleSearchText}
               />
-              <span className="input-group-btn">
-                <button className="btn btn-info btn-lg" type="submit">
-                  <i className="fa fa-search" />
-                </button>
-              </span>
             </div>
+            <div className="input-group col-md-6">
+              <input
+                type="text"
+                className="form-control input-lg"
+                placeholder="Search Location"
+                value={this.state.searchLocation}
+                onChange={event =>
+                  this.setState({ searchLocation: event.target.value })
+                }
+              />
+            </div>
+            <div className="input-group col-md-6">
+              <input
+                type="text"
+                className="form-control input-lg"
+                placeholder="Search Sector"
+                value={this.state.searchSector}
+                onChange={event =>
+                  this.setState({ searchSector: event.target.value })
+                }
+              />
+            </div>
+            <input
+              type="submit"
+              className="btn btn-info btn-lg"
+              value="Search"
+            />
           </form>
         </div>
       </div>

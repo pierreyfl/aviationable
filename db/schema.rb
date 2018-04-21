@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420011925) do
+ActiveRecord::Schema.define(version: 20180420233418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180420011925) do
     t.integer "banner_file_size"
     t.datetime "banner_updated_at"
     t.string "sector"
+    t.index ["city", "state", "country"], name: "city_state_country_idx"
   end
 
   create_table "employees", force: :cascade do |t|

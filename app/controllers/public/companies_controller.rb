@@ -2,7 +2,7 @@ module Public
     class CompaniesController < ActionController::Base
         #this controller is going to be used for those routes that don't need authentication
         def index
-            @companies = Company.all
+            @companies = CompanyView.all
             respond_to do |format|
 
                 format.html
@@ -14,11 +14,11 @@ module Public
 
         def search
 
+            query = params[:query]
 
-            @companies = Company.all
+            @companies = CompanyView.by_name(query[:company]).by_sector(query[:sector]).by_location(query[:location])
         
-            # @companies = (params[:query] == '') ? Company.all :  @companies.search(params[:query]) if (params[:query])
-            @companies = @companies.where('name ILIKE ?', "%#{params[:query]}%" ) if (params[:query])
+            
             filter = params[:filters]
             if filter.present?
                 @companies = @companies.where("revenue >= ?", filter[:min_revenue]) if filter[:min_revenue] != ''

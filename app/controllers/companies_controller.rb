@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = CompanyView.all
   end
 
   # GET /companies/1
