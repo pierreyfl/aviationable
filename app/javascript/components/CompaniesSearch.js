@@ -67,120 +67,58 @@ export default class CompaniesSearch extends React.Component {
     const inputProps = {
       placeholder: "Search Location",
       value: this.state.searchLocation,
-      onChange: this.onChange
+      onChange: this.onChange,
+      className: "form-control input-lg"
     };
 
     return (
-      <div>
-        <div className="col-md-6 offset-md-3">
+      <div className="search-container">
+        <div className="col-md-12 col-lg-12 ">
           <form id="custom-search-input" onSubmit={this.searchCompanies}>
-            <div className="input-group col-md-12">
+            <div className="row">
+              <div className="input-group col-md-12 col-lg-12">
+                <input
+                  type="text"
+                  className="form-control input-lg"
+                  placeholder="Search Company"
+                  value={this.state.searchText}
+                  onChange={this.handleSearchText}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-group col-md-6 col-lg-6">
+                <Autosuggest
+                  suggestions={this.state.suggestions}
+                  onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                  onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                  getSuggestionValue={this.getSuggestionValue}
+                  renderSuggestion={this.renderSuggestion}
+                  inputProps={inputProps}
+                />
+              </div>
+              <div className="input-group col-md-6 col-lg-6">
+                <input
+                  type="text"
+                  className="form-control input-lg"
+                  placeholder="Search Sector"
+                  value={this.state.searchSector}
+                  onChange={event =>
+                    this.setState({ searchSector: event.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div>
               <input
-                type="text"
-                className="form-control input-lg"
-                placeholder="Search Company"
-                value={this.state.searchText}
-                onChange={this.handleSearchText}
+                type="submit"
+                className="btn btn-info btn-md"
+                value="Search"
               />
             </div>
-            <div className="input-group col-md-6">
-              <Autosuggest
-                suggestions={this.state.suggestions}
-                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                getSuggestionValue={this.getSuggestionValue}
-                renderSuggestion={this.renderSuggestion}
-                inputProps={inputProps}
-              />
-            </div>
-            <div className="input-group col-md-6">
-              <input
-                type="text"
-                className="form-control input-lg"
-                placeholder="Search Sector"
-                value={this.state.searchSector}
-                onChange={event =>
-                  this.setState({ searchSector: event.target.value })
-                }
-              />
-            </div>
-            <input
-              type="submit"
-              className="btn btn-info btn-lg"
-              value="Search"
-            />
           </form>
         </div>
       </div>
     );
   }
 }
-
-// var CompaniesSearch = createReactClass({
-//   getInitialState: function() {
-//     return { searchText: "", searchLocation: "", searchSector: "" };
-//   },
-//   componentWillMount: function() {},
-
-//   searchCompanies: function(event) {
-//     event.preventDefault();
-//     this.props.searchCompanies({
-//       company: this.state.searchText,
-//       location: this.state.searchLocation,
-//       sector: this.state.searchSector
-//     });
-//   },
-
-//   handleSearchText: function(event) {
-//     this.setState({
-//       searchText: event.target.value
-//     });
-//   },
-
-//   render: function() {
-//     return (
-//       <div>
-//         <div className="col-md-6 offset-md-3">
-//           <form id="custom-search-input" onSubmit={this.searchCompanies}>
-//             <div className="input-group col-md-12">
-//               <input
-//                 type="text"
-//                 className="form-control input-lg"
-//                 placeholder="Search Company"
-//                 value={this.state.searchText}
-//                 onChange={this.handleSearchText}
-//               />
-//             </div>
-//             <div className="input-group col-md-6">
-//               <input
-//                 type="text"
-//                 className="form-control input-lg"
-//                 placeholder="Search Location"
-//                 value={this.state.searchLocation}
-//                 onChange={event =>
-//                   this.setState({ searchLocation: event.target.value })
-//                 }
-//               />
-//             </div>
-//             <div className="input-group col-md-6">
-//               <input
-//                 type="text"
-//                 className="form-control input-lg"
-//                 placeholder="Search Sector"
-//                 value={this.state.searchSector}
-//                 onChange={event =>
-//                   this.setState({ searchSector: event.target.value })
-//                 }
-//               />
-//             </div>
-//             <input
-//               type="submit"
-//               className="btn btn-info btn-lg"
-//               value="Search"
-//             />
-//           </form>
-//         </div>
-//       </div>
-//     );
-//   }
-// });
